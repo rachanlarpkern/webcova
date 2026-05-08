@@ -10,7 +10,6 @@
         body { font-family: 'Noto Sans Thai', sans-serif; }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        /* ลายจุดสำหรับตกแต่งพื้นหลัง */
         .bg-pattern {
             background-image: radial-gradient(rgba(15, 23, 42, 0.05) 1px, transparent 1px);
             background-size: 24px 24px;
@@ -31,15 +30,17 @@
     <div class="relative z-10 flex flex-col min-h-screen">
         
         <div class="sticky top-4 z-40 px-4 md:px-6">
-            <nav class="container mx-auto max-w-6xl bg-white/80 backdrop-blur-xl border border-white shadow-lg rounded-full px-6 py-3 transition-all duration-300">
-                <div class="flex justify-between items-center">
+            <nav class="container mx-auto max-w-6xl bg-white/80 backdrop-blur-xl border border-white shadow-lg rounded-[2rem] px-6 py-3 transition-all duration-300 relative">
+                <div class="flex justify-between items-center relative z-10">
                     
-                   <a href="index.html" class="flex items-center space-x-3 group cursor-pointer">
-                    <img src="images/rice.png" 
-                    alt="YOMI Logo" 
-             class="w-10 h-10 object-contain group-hover:scale-110 transition-transform duration-300 drop-shadow-sm" />
-            <span class="text-xl font-extrabold tracking-wider text-slate-800">YOMI</span>
-</a>
+                    <a href="index.html" class="flex items-center space-x-3 group cursor-pointer">
+                        <img src="images/rice.png" 
+                             alt="YOMI Logo" 
+                             class="w-10 h-10 object-contain group-hover:scale-110 transition-transform duration-300 drop-shadow-sm" 
+                             onerror="this.src='https://via.placeholder.com/40x40/4f46e5/ffffff?text=Y'" />
+                        <span class="text-xl font-extrabold tracking-wider text-slate-800">YOMI</span>
+                    </a>
+                    
                     <ul class="hidden md:flex space-x-8 text-sm font-bold text-slate-500 tracking-wide">
                         <li><a href="index.html" class="text-indigo-600 relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-0.5 after:bg-indigo-600 after:rounded-full">หน้าแรก</a></li>
                         <li><a href="manga.html" class="hover:text-indigo-600 transition-colors">มังงะและไลท์โนเวล</a></li>
@@ -52,16 +53,27 @@
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
                             <span class="absolute -top-0.5 -right-0.5 w-3.5 h-3.5 bg-rose-500 rounded-full border-2 border-white shadow-sm"></span>
                         </a>
-                        <button class="md:hidden block text-slate-600 hover:bg-white bg-white/50 p-2.5 rounded-full shadow-sm border border-slate-100 transition-colors focus:outline-none">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                        
+                        <button onclick="toggleMobileMenu()" class="md:hidden block text-slate-600 hover:bg-white bg-white/50 p-2.5 rounded-full shadow-sm border border-slate-100 transition-colors focus:outline-none">
+                            <svg id="menuIcon" class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                            </svg>
                         </button>
                     </div>
                 </div>
-            </nav>
+
+                <div id="mobileMenu" class="md:hidden absolute top-full left-0 w-full mt-2 bg-white/95 backdrop-blur-xl shadow-xl rounded-2xl overflow-hidden transition-all duration-500 max-h-0 opacity-0 pointer-events-none border border-white/50">
+                    <ul class="flex flex-col py-3 px-6 space-y-4">
+                        <li><a href="index.html" class="block text-indigo-600 font-bold border-b border-slate-100 pb-2">หน้าแรก</a></li>
+                        <li><a href="manga.html" class="block text-slate-600 font-bold hover:text-indigo-600 transition-colors border-b border-slate-100 pb-2">มังงะและไลท์โนเวล</a></li>
+                        <li><a href="history.html" class="block text-slate-600 font-bold hover:text-indigo-600 transition-colors border-b border-slate-100 pb-2">ประวัติศาสตร์</a></li>
+                        <li><a href="artbook.html" class="block text-slate-600 font-bold hover:text-indigo-600 transition-colors pb-1">อาร์ตบุ๊ค</a></li>
+                    </ul>
+                </div>
+                </nav>
         </div>
 
         <main class="container mx-auto px-6 py-8 md:py-12 max-w-6xl flex-grow">
-            
             <div class="relative w-full h-[250px] md:h-[350px] lg:h-[450px] rounded-[2rem] overflow-hidden mb-12 shadow-xl border border-white/50 group">
                 <div id="sliderWrapper" class="flex w-full h-full transition-transform duration-500 ease-out" style="transform: translateX(0%);">
                     
@@ -293,6 +305,29 @@
         function addToCart() { 
             alert('เพิ่มสินค้าลงตะกร้าเรียบร้อยแล้ว!'); 
             closeModal(); 
+        }
+
+        // ================= JS สำหรับ Mobile Dropdown Menu =================
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const icon = document.getElementById('menuIcon');
+            
+            // เช็กว่าเมนูปิดอยู่หรือไม่ (max-h-0 คือปิด)
+            if (menu.classList.contains('max-h-0')) {
+                // เปิดเมนู: นำคลาสที่ซ่อนอยู่ออก และใส่คลาสที่ขยายความสูง/แสดงผล
+                menu.classList.remove('max-h-0', 'opacity-0', 'pointer-events-none');
+                menu.classList.add('max-h-[400px]', 'opacity-100', 'pointer-events-auto');
+                
+                // เปลี่ยนไอคอนแฮมเบอร์เกอร์ เป็นกากบาท (X)
+                icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
+            } else {
+                // ปิดเมนู
+                menu.classList.add('max-h-0', 'opacity-0', 'pointer-events-none');
+                menu.classList.remove('max-h-[400px]', 'opacity-100', 'pointer-events-auto');
+                
+                // เปลี่ยนไอคอนกลับเป็นแฮมเบอร์เกอร์ (3 ขีด)
+                icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
+            }
         }
     </script>
 </body>

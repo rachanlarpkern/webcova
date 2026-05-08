@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yomi (読み) - ร้านหนังสือสไตล์มินิมอล</title>
+    <title>Yomi BOOK - ร้านหนังสือสไตล์มินิมอล</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <style>
@@ -33,11 +33,11 @@
         <div class="sticky top-4 z-40 px-4 md:px-6">
             <nav class="container mx-auto max-w-6xl bg-white/80 backdrop-blur-xl border border-white shadow-lg rounded-full px-6 py-3 transition-all duration-300">
                 <div class="flex justify-between items-center">
+                    
                     <a href="index.html" class="flex items-center space-x-3 group cursor-pointer">
-                        <img src="images/logo.png" 
+                        <img src="blob:https://gemini.google.com/069437ac-4be2-4b77-896c-7a2e30adb34b" 
                              alt="YOMI Logo" 
-                             class="w-10 h-10 object-contain group-hover:scale-110 transition-transform duration-300 drop-shadow-sm" 
-                             onerror="this.src='https://via.placeholder.com/40x40/4f46e5/ffffff?text=Y'" />
+                             class="w-10 h-10 object-contain group-hover:scale-110 transition-transform duration-300 drop-shadow-sm rounded-full" />
                         <span class="text-xl font-extrabold tracking-wider text-slate-800">YOMI</span>
                     </a>
                     
@@ -108,6 +108,7 @@
                     <button onclick="goToSlide(2)" class="dot w-3 h-3 rounded-full bg-white/40 hover:bg-white/80 transition-all shadow-md"></button>
                 </div>
             </div>
+            
             <div class="flex flex-col md:flex-row justify-between items-end mb-10 gap-4 mt-8">
                 <div>
                     <h1 class="text-4xl md:text-5xl font-black text-slate-900 mb-3 tracking-tight">หนังสือแนะนำ</h1>
@@ -213,21 +214,18 @@
     <script>
         // ================= JS สำหรับแบนเนอร์สไลด์ =================
         let currentSlide = 0;
-        const totalSlides = 3; // จำนวนภาพแบนเนอร์
+        const totalSlides = 3; 
         const sliderWrapper = document.getElementById('sliderWrapper');
         const dots = document.querySelectorAll('.dot');
         let autoSlideInterval;
 
         function updateSlider() {
-            // เลื่อนภาพตามเปอร์เซ็นต์ (เช่น 0%, -100%, -200%)
             sliderWrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
-            
-            // อัปเดตสีของจุด (Dots) ให้ตรงกับภาพปัจจุบัน
             dots.forEach((dot, index) => {
                 if (index === currentSlide) {
                     dot.classList.remove('bg-white/40');
                     dot.classList.add('bg-white');
-                    dot.classList.add('w-6'); // ขยายจุดปัจจุบันให้กว้างขึ้นเล็กน้อย
+                    dot.classList.add('w-6'); 
                 } else {
                     dot.classList.remove('bg-white');
                     dot.classList.remove('w-6');
@@ -254,21 +252,17 @@
             resetInterval();
         }
 
-        // ตั้งเวลาเลื่อนอัตโนมัติทุกๆ 5 วินาที
         function startInterval() {
             autoSlideInterval = setInterval(nextSlide, 5000);
         }
 
-        // รีเซ็ตเวลาเพื่อไม่ให้เลื่อนซ้อนกันเวลากดปุ่มเปลี่ยนเอง
         function resetInterval() {
             clearInterval(autoSlideInterval);
             startInterval();
         }
 
-        // เริ่มต้นการทำงานของสไลด์
         updateSlider();
         startInterval();
-
 
         // ================= JS สำหรับ Modal (หน้าต่างป๊อปอัพ) =================
         const modal = document.getElementById('bookModal');

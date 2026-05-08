@@ -24,35 +24,35 @@
         <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=2000&auto=format&fit=crop" 
              alt="Library Background" 
              class="w-full h-full object-cover scale-105 opacity-80" />
-        
         <div class="absolute inset-0 bg-gradient-to-br from-white/95 via-white/80 to-indigo-50/90 backdrop-blur-md"></div>
-        
         <div class="absolute inset-0 bg-pattern"></div>
     </div>
     <div class="relative z-10 flex flex-col min-h-screen">
         
         <div class="sticky top-4 z-40 px-4 md:px-6">
-            <nav class="container mx-auto max-w-6xl bg-white/70 backdrop-blur-xl border border-white shadow-lg rounded-full px-6 py-3 transition-all duration-300">
+            <nav class="container mx-auto max-w-6xl bg-white/80 backdrop-blur-xl border border-white shadow-lg rounded-full px-6 py-3 transition-all duration-300">
                 <div class="flex justify-between items-center">
-                 <div class="flex items-center space-x-3 group cursor-pointer">
-    <img src="images/rice.png" 
-         alt="YOMI Logo" 
-         class="w-10 h-10 object-contain group-hover:scale-110 transition-transform duration-300" />
-    
-    <span class="text-xl font-extrabold tracking-wider text-slate-800">YOMI</span>
-</div>
+                    
+                    <a href="index.html" class="flex items-center space-x-3 group cursor-pointer">
+                        <img src="images/logo.png" 
+                             alt="YOMI Logo" 
+                             class="w-10 h-10 object-contain group-hover:scale-110 transition-transform duration-300 drop-shadow-sm" 
+                             onerror="this.src='https://via.placeholder.com/40x40/4f46e5/ffffff?text=Y'" />
+                        <span class="text-xl font-extrabold tracking-wider text-slate-800">YOMI</span>
+                    </a>
+                    
                     <ul class="hidden md:flex space-x-8 text-sm font-bold text-slate-500 tracking-wide">
-                        <li><a href="#" class="text-indigo-600 relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-0.5 after:bg-indigo-600 after:rounded-full">หน้าแรก</a></li>
-                        <li><a href="#" class="hover:text-indigo-600 transition-colors">มังงะและไลท์โนเวล</a></li>
-                        <li><a href="#" class="hover:text-indigo-600 transition-colors">ประวัติศาสตร์</a></li>
-                        <li><a href="#" class="hover:text-indigo-600 transition-colors">อาร์ตบุ๊ค</a></li>
+                        <li><a href="index.html" class="text-indigo-600 relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-0.5 after:bg-indigo-600 after:rounded-full">หน้าแรก</a></li>
+                        <li><a href="manga.html" class="hover:text-indigo-600 transition-colors">มังงะและไลท์โนเวล</a></li>
+                        <li><a href="history.html" class="hover:text-indigo-600 transition-colors">ประวัติศาสตร์</a></li>
+                        <li><a href="artbook.html" class="hover:text-indigo-600 transition-colors">อาร์ตบุ๊ค</a></li>
                     </ul>
 
                     <div class="flex items-center space-x-3">
-                        <button class="text-slate-600 hover:text-indigo-600 hover:bg-white transition-all relative bg-white/50 p-2.5 rounded-full shadow-sm border border-slate-100">
+                        <a href="cart.html" class="text-slate-600 hover:text-indigo-600 hover:bg-white transition-all relative bg-white/50 p-2.5 rounded-full shadow-sm border border-slate-100">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
                             <span class="absolute -top-0.5 -right-0.5 w-3.5 h-3.5 bg-rose-500 rounded-full border-2 border-white shadow-sm"></span>
-                        </button>
+                        </a>
                         <button class="md:hidden block text-slate-600 hover:bg-white bg-white/50 p-2.5 rounded-full shadow-sm border border-slate-100 transition-colors focus:outline-none">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                         </button>

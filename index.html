@@ -27,12 +27,12 @@
         <div class="absolute inset-0 bg-gradient-to-br from-white/95 via-white/80 to-indigo-50/90 backdrop-blur-md"></div>
         <div class="absolute inset-0 bg-pattern"></div>
     </div>
+
     <div class="relative z-10 flex flex-col min-h-screen">
         
         <div class="sticky top-4 z-40 px-4 md:px-6">
             <nav class="container mx-auto max-w-6xl bg-white/80 backdrop-blur-xl border border-white shadow-lg rounded-full px-6 py-3 transition-all duration-300">
                 <div class="flex justify-between items-center">
-                    
                     <a href="index.html" class="flex items-center space-x-3 group cursor-pointer">
                         <img src="images/logo.png" 
                              alt="YOMI Logo" 
@@ -61,8 +61,54 @@
             </nav>
         </div>
 
-        <main class="container mx-auto px-6 py-12 max-w-6xl flex-grow">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-10 gap-4">
+        <main class="container mx-auto px-6 py-8 md:py-12 max-w-6xl flex-grow">
+            
+            <div class="relative w-full h-[250px] md:h-[350px] lg:h-[450px] rounded-[2rem] overflow-hidden mb-12 shadow-xl border border-white/50 group">
+                <div id="sliderWrapper" class="flex w-full h-full transition-transform duration-500 ease-out" style="transform: translateX(0%);">
+                    
+                    <div class="min-w-full h-full relative">
+                        <img src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?q=80&w=1200&auto=format&fit=crop" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/30 to-transparent flex flex-col justify-end p-8 md:p-12">
+                            <span class="bg-rose-500 text-white text-xs font-bold px-3 py-1 rounded-full w-max mb-3 uppercase tracking-wider shadow-md">New Arrival</span>
+                            <h2 class="text-3xl md:text-5xl font-black text-white mb-2 drop-shadow-lg">หนังสือออกใหม่ประจำเดือน</h2>
+                            <p class="text-slate-200 md:text-lg max-w-lg drop-shadow-md">พบกับนิยายและมังงะเรื่องดังที่เพิ่งวางแผง สั่งซื้อได้แล้ววันนี้พร้อมโปรโมชั่นพิเศษ!</p>
+                        </div>
+                    </div>
+
+                    <div class="min-w-full h-full relative">
+                        <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=1200&auto=format&fit=crop" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/30 to-transparent flex flex-col justify-end p-8 md:p-12">
+                            <span class="bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full w-max mb-3 uppercase tracking-wider shadow-md">Promotion</span>
+                            <h2 class="text-3xl md:text-5xl font-black text-white mb-2 drop-shadow-lg">ลดจัดหนัก กลางปี 2026</h2>
+                            <p class="text-slate-200 md:text-lg max-w-lg drop-shadow-md">ลดสูงสุด 30% หมวดหมู่ประวัติศาสตร์และอาร์ตบุ๊ค ส่งฟรีเมื่อซื้อครบ 500 บาท</p>
+                        </div>
+                    </div>
+
+                    <div class="min-w-full h-full relative">
+                        <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=1200&auto=format&fit=crop" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/30 to-transparent flex flex-col justify-end p-8 md:p-12">
+                            <span class="bg-indigo-500 text-white text-xs font-bold px-3 py-1 rounded-full w-max mb-3 uppercase tracking-wider shadow-md">Pre-Order</span>
+                            <h2 class="text-3xl md:text-5xl font-black text-white mb-2 drop-shadow-lg">สั่งจอง อาร์ตบุ๊คสุดเอกซ์คลูซีฟ</h2>
+                            <p class="text-slate-200 md:text-lg max-w-lg drop-shadow-md">เปิดจอง Blue Archive Official Artworks เล่มใหม่ล่าสุด รับของแถมพิเศษเฉพาะรอบพรีออเดอร์</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <button onclick="prevSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/70 backdrop-blur-md text-white hover:text-slate-900 p-3 rounded-full transition-all duration-300 opacity-0 group-hover:opacity-100 shadow-lg focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path></svg>
+                </button>
+                <button onclick="nextSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/70 backdrop-blur-md text-white hover:text-slate-900 p-3 rounded-full transition-all duration-300 opacity-0 group-hover:opacity-100 shadow-lg focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
+                </button>
+
+                <div class="absolute bottom-5 left-1/2 -translate-x-1/2 flex space-x-3 z-20">
+                    <button onclick="goToSlide(0)" class="dot w-3 h-3 rounded-full bg-white transition-all shadow-md"></button>
+                    <button onclick="goToSlide(1)" class="dot w-3 h-3 rounded-full bg-white/40 hover:bg-white/80 transition-all shadow-md"></button>
+                    <button onclick="goToSlide(2)" class="dot w-3 h-3 rounded-full bg-white/40 hover:bg-white/80 transition-all shadow-md"></button>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row justify-between items-end mb-10 gap-4 mt-8">
                 <div>
                     <h1 class="text-4xl md:text-5xl font-black text-slate-900 mb-3 tracking-tight">หนังสือแนะนำ</h1>
                     <p class="text-slate-500 font-medium tracking-wide flex items-center gap-2">
@@ -75,7 +121,7 @@
             </div>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="group cursor-pointer flex flex-col bg-white/70 backdrop-blur-xl p-5 rounded-[2rem] shadow-lg hover:shadow-2xl transition-all duration-500 border border-white hover:-translate-y-2" onclick="toggleModal('มหาเวทย์ผนึกมาร เล่ม 25', 'การต่อสู้ชี้ชะตาในชินจูกุ ดุเดือดขึ้นเรื่อยๆ เมื่อเหล่านักคุณไสยต้องเผชิญหน้ากับคำสาประดับพิเศษ...', '฿115', 'https://via.placeholder.com/400x600/e0e7ff/4f46e5?text=Jujutsu+Kaisen')">
+                <div class="group cursor-pointer flex flex-col bg-white/70 backdrop-blur-xl p-5 rounded-[2rem] shadow-lg hover:shadow-2xl transition-all duration-500 border border-white hover:-translate-y-2" onclick="toggleModal('มหาเวทย์ผนึกมาร เล่ม 25', 'การต่อสู้ชี้ชะตาในชินจูกุ ดุเดือดขึ้นเรื่อยๆ เมื่อเหล่านักคุณไสยต้องเผชิญหน้ากับคำสาประดับพิเศษ...', '฿115', 'https://cdn-local.mebmarket.com/meb/server1/294309/Thumbnail/book_detail_large.gif?2')">
                     <div class="relative overflow-hidden rounded-2xl bg-slate-200 aspect-[3/4] mb-6 shadow-inner">
                         <img src="https://cdn-local.mebmarket.com/meb/server1/294309/Thumbnail/book_detail_large.gif?2" alt="ปกหนังสือ" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out">
                         <div class="absolute top-4 left-4 bg-indigo-500 text-white text-[10px] font-bold px-3 py-1.5 uppercase tracking-widest rounded-full shadow-md">MANGA</div>
@@ -92,7 +138,7 @@
                     </div>
                 </div>
 
-                <div class="group cursor-pointer flex flex-col bg-white/70 backdrop-blur-xl p-5 rounded-[2rem] shadow-lg hover:shadow-2xl transition-all duration-500 border border-white hover:-translate-y-2" onclick="toggleModal('ประวัติศาสตร์ญี่ปุ่น HISTORY of JAPAN', 'เจาะลึกยุคแห่งการรวมชาติของญี่ปุ่น ศึกษาเส้นทางอำนาจของ โอดะ โนบุนางะ และ โทโยโทมิ ฮิเดโยชิ...', '฿350', 'https://via.placeholder.com/400x600/fef3c7/d97706?text=Azuchi-Momoyama')">
+                <div class="group cursor-pointer flex flex-col bg-white/70 backdrop-blur-xl p-5 rounded-[2rem] shadow-lg hover:shadow-2xl transition-all duration-500 border border-white hover:-translate-y-2" onclick="toggleModal('ประวัติศาสตร์ญี่ปุ่น HISTORY of JAPAN', 'เจาะลึกยุคแห่งการรวมชาติของญี่ปุ่น ศึกษาเส้นทางอำนาจของ โอดะ โนบุนางะ และ โทโยโทมิ ฮิเดโยชิ...', '฿350', 'https://storage.naiin.com/system/application/bookstore/resource/product/201903/475504/1000217339_front_XXL.jpg?v=1725710953')">
                     <div class="relative overflow-hidden rounded-2xl bg-slate-200 aspect-[3/4] mb-6 shadow-inner">
                         <img src="https://storage.naiin.com/system/application/bookstore/resource/product/201903/475504/1000217339_front_XXL.jpg?v=1725710953" alt="ปกหนังสือ" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out">
                         <div class="absolute top-4 left-4 bg-amber-500 text-white text-[10px] font-bold px-3 py-1.5 uppercase tracking-widest rounded-full shadow-md">HISTORY</div>
@@ -109,7 +155,7 @@
                     </div>
                 </div>
 
-                <div class="group cursor-pointer flex flex-col bg-white/70 backdrop-blur-xl p-5 rounded-[2rem] shadow-lg hover:shadow-2xl transition-all duration-500 border border-white hover:-translate-y-2" onclick="toggleModal('Blue Archive Official Artworks', 'รวบรวมภาพวาด ภาพร่าง และการออกแบบตัวละครจากเกม Blue Archive พร้อมบทสัมภาษณ์นักวาด...', '฿1,290', 'https://via.placeholder.com/400x600/ffe4e6/e11d48?text=Blue+Archive+Art')">
+                <div class="group cursor-pointer flex flex-col bg-white/70 backdrop-blur-xl p-5 rounded-[2rem] shadow-lg hover:shadow-2xl transition-all duration-500 border border-white hover:-translate-y-2" onclick="toggleModal('Blue Archive Official Artworks', 'รวบรวมภาพวาด ภาพร่าง และการออกแบบตัวละครจากเกม Blue Archive พร้อมบทสัมภาษณ์นักวาด...', '฿1,290', 'https://th-live-01.slatic.net/p/24e1e3f9532f25184d95414d33a3c58a.jpg')">
                     <div class="relative overflow-hidden rounded-2xl bg-slate-200 aspect-[3/4] mb-6 shadow-inner">
                         <img src="https://th-live-01.slatic.net/p/24e1e3f9532f25184d95414d33a3c58a.jpg" alt="ปกหนังสือ" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out">
                         <div class="absolute top-4 left-4 bg-rose-500 text-white text-[10px] font-bold px-3 py-1.5 uppercase tracking-widest rounded-full shadow-md">ARTBOOK</div>
@@ -165,6 +211,66 @@
     </div>
 
     <script>
+        // ================= JS สำหรับแบนเนอร์สไลด์ =================
+        let currentSlide = 0;
+        const totalSlides = 3; // จำนวนภาพแบนเนอร์
+        const sliderWrapper = document.getElementById('sliderWrapper');
+        const dots = document.querySelectorAll('.dot');
+        let autoSlideInterval;
+
+        function updateSlider() {
+            // เลื่อนภาพตามเปอร์เซ็นต์ (เช่น 0%, -100%, -200%)
+            sliderWrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // อัปเดตสีของจุด (Dots) ให้ตรงกับภาพปัจจุบัน
+            dots.forEach((dot, index) => {
+                if (index === currentSlide) {
+                    dot.classList.remove('bg-white/40');
+                    dot.classList.add('bg-white');
+                    dot.classList.add('w-6'); // ขยายจุดปัจจุบันให้กว้างขึ้นเล็กน้อย
+                } else {
+                    dot.classList.remove('bg-white');
+                    dot.classList.remove('w-6');
+                    dot.classList.add('bg-white/40');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlider();
+            resetInterval();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateSlider();
+            resetInterval();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlider();
+            resetInterval();
+        }
+
+        // ตั้งเวลาเลื่อนอัตโนมัติทุกๆ 5 วินาที
+        function startInterval() {
+            autoSlideInterval = setInterval(nextSlide, 5000);
+        }
+
+        // รีเซ็ตเวลาเพื่อไม่ให้เลื่อนซ้อนกันเวลากดปุ่มเปลี่ยนเอง
+        function resetInterval() {
+            clearInterval(autoSlideInterval);
+            startInterval();
+        }
+
+        // เริ่มต้นการทำงานของสไลด์
+        updateSlider();
+        startInterval();
+
+
+        // ================= JS สำหรับ Modal (หน้าต่างป๊อปอัพ) =================
         const modal = document.getElementById('bookModal');
         const modalContent = document.getElementById('modalContent');
         

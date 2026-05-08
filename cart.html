@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ตะกร้าสินค้า - Yomi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Noto Sans Thai', sans-serif; }
+        .bg-pattern { background-image: radial-gradient(rgba(15, 23, 42, 0.05) 1px, transparent 1px); background-size: 24px 24px; }
+    </style>
+</head>
+<body class="relative text-slate-800 antialiased min-h-screen bg-slate-50 overflow-x-hidden">
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover scale-105 opacity-80" />
+        <div class="absolute inset-0 bg-gradient-to-br from-white/95 via-white/80 to-indigo-50/90 backdrop-blur-md"></div>
+        <div class="absolute inset-0 bg-pattern"></div>
+    </div>
+
+    <div class="relative z-10 flex flex-col min-h-screen">
+        <div class="sticky top-4 z-40 px-4 md:px-6">
+            <nav class="container mx-auto max-w-6xl bg-white/80 backdrop-blur-xl border border-white shadow-lg rounded-full px-6 py-3 transition-all duration-300">
+                <div class="flex justify-between items-center">
+                    <a href="index.html" class="flex items-center space-x-3 group cursor-pointer">
+                        <img src="images/logo.png" alt="YOMI Logo" class="w-10 h-10 object-contain group-hover:scale-110 transition-transform duration-300 drop-shadow-sm" onerror="this.src='https://via.placeholder.com/40x40/4f46e5/ffffff?text=Y'" />
+                        <span class="text-xl font-extrabold tracking-wider text-slate-800">YOMI</span>
+                    </a>
+                    
+                    <ul class="hidden md:flex space-x-8 text-sm font-bold text-slate-500 tracking-wide">
+                        <li><a href="index.html" class="hover:text-indigo-600 transition-colors">หน้าแรก</a></li>
+                        <li><a href="manga.html" class="hover:text-indigo-600 transition-colors">มังงะและไลท์โนเวล</a></li>
+                        <li><a href="history.html" class="hover:text-indigo-600 transition-colors">ประวัติศาสตร์</a></li>
+                        <li><a href="artbook.html" class="hover:text-indigo-600 transition-colors">อาร์ตบุ๊ค</a></li>
+                    </ul>
+
+                    <div class="flex items-center space-x-3">
+                        <a href="cart.html" class="text-indigo-600 bg-white transition-all relative p-2.5 rounded-full shadow-md border border-indigo-100">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                            <span class="absolute -top-0.5 -right-0.5 w-3.5 h-3.5 bg-rose-500 rounded-full border-2 border-white shadow-sm"></span>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <main class="container mx-auto px-6 py-12 max-w-6xl flex-grow">
+            <h1 class="text-4xl font-black text-slate-900 mb-8">ตะกร้าสินค้า</h1>
+            
+            <div class="flex flex-col lg:flex-row gap-8">
+                <div class="w-full lg:w-2/3 bg-white/70 backdrop-blur-xl rounded-[2rem] p-6 shadow-lg border border-white">
+                    <div class="flex items-center gap-4 border-b border-slate-200/60 pb-6 mb-6">
+                        <img src="https://via.placeholder.com/100x150/e0e7ff/4f46e5?text=Jujutsu+Kaisen" class="w-20 h-28 object-cover rounded-lg shadow-sm">
+                        <div class="flex-grow">
+                            <h3 class="text-lg font-bold text-slate-800">มหาเวทย์ผนึกมาร เล่ม 25</h3>
+                            <p class="text-sm text-slate-400 mb-2">หมวดหมู่: มังงะ</p>
+                            <span class="text-xl font-black text-rose-500">฿115</span>
+                        </div>
+                        <button class="text-slate-400 hover:text-red-500 p-2"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-1/3">
+                    <div class="bg-slate-900 rounded-[2rem] p-8 shadow-2xl text-white sticky top-28">
+                        <h2 class="text-2xl font-bold mb-6">สรุปคำสั่งซื้อ</h2>
+                        <div class="flex justify-between mb-4 text-slate-300"><span>ยอดรวม</span><span>฿115</span></div>
+                        <div class="flex justify-between mb-6 text-slate-300"><span>ค่าจัดส่ง</span><span class="text-emerald-400">ฟรี</span></div>
+                        <div class="border-t border-slate-700 pt-6 mb-8 flex justify-between items-center">
+                            <span class="text-lg font-medium">ยอดชำระสุทธิ</span>
+                            <span class="text-3xl font-black text-rose-400">฿115</span>
+                        </div>
+                        <button class="w-full bg-white text-slate-900 py-4 rounded-xl font-bold text-lg hover:bg-indigo-50 transition-colors shadow-lg">
+                            ดำเนินการชำระเงิน
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
